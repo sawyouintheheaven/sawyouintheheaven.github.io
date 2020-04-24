@@ -32,7 +32,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1587697065745">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1587697445709">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -186,19 +186,19 @@
 
     
     <section class="nexmoe-comment">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
-<div id="gitalk"></div>
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: '069e2c655bf38959ea9d',
-        clientSecret: '17ca17053891483c773546564fc3647d6766842b',
-        id: window.location.pathname,
-        repo: 'sawyouintheheaven.github.io',
-        owner: 'sawyouintehheaven',
-        admin: 'sawyouintheheaven'
-    })
-    gitalk.render('gitalk')
+    <div id="gitment"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'sawyouintheheaven', // 你的 GitHub ID
+    repo: 'sawyouintheheaven.github.io', // 存储评论的 repo
+    oauth: {
+        client_id: '069e2c655bf38959ea9d', // 你的 client ID
+        client_secret: '17ca17053891483c773546564fc3647d6766842b' // 你的 client secret
+    },
+})
+gitment.render('gitment')
 </script>
 </section>
   </div>
@@ -207,7 +207,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1587697065749"></script>-->
+<!--<script src="/js/app.js?v=1587697445711"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
