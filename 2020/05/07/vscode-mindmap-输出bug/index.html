@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  
+  <title>vscode-mindmap-输出bug - Blog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="daily life recorder">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="8gml79htPcoV7PoxBrp_3J8WI8fAlFOWk_alGkclS7s" />
+
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="58Scv3Uiuj" />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="先说结论  vscode 缩放导致插件的ui没显示出来，进而不能输出图片 解决方法  ctrl - 缩放，或者把左边EXPLORE隐藏即可    detail  接触vscode之后其他什么app都想使用插件，脑图也不例外，用的是vscode-mindmap。今天给导师演示脑图，末导师想让我输出图片给他,结果开始折腾。  插件那里是这么说的 可是我怎么找也找不到输出选项，默认的File和Edit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode-mindmap-输出bug">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/vscode-mindmap-%E8%BE%93%E5%87%BAbug/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="先说结论  vscode 缩放导致插件的ui没显示出来，进而不能输出图片 解决方法  ctrl - 缩放，或者把左边EXPLORE隐藏即可    detail  接触vscode之后其他什么app都想使用插件，脑图也不例外，用的是vscode-mindmap。今天给导师演示脑图，末导师想让我输出图片给他,结果开始折腾。  插件那里是这么说的 可是我怎么找也找不到输出选项，默认的File和Edit">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507124132.png">
+<meta property="og:image" content="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F267641%2F612ccc4e-b2e6-f71e-e0cb-53e21c55c0b6.png?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&s=4287b638f8e257fcce701af0b68318b5">
+<meta property="og:image" content="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507130959.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507123708.png">
+<meta property="article:published_time" content="2020-05-07T04:31:48.000Z">
+<meta property="article:modified_time" content="2020-05-07T05:28:39.489Z">
+<meta property="article:author" content="katachi">
+<meta property="article:tag" content="bugFixed">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507124132.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="/css/style.css?v=1588829330063">-->
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(http://m.qpic.cn/psc?/V10OU2ui1HfXsL/es2MkY2PTea.oVL6KUJJIAOCQlokuscGohwA5WhMQQsutibp5jWUb1aK7H1*GBlkvhn581hfB3qKr61pmbHZIA!!/b&amp;bo=gAc4BIAHOAQDCSw!&amp;rf=viewer_4)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="katachi" class="mdui-btn mdui-btn-icon"><img src="http://m.qpic.cn/psc?/V10OU2ui1HfXsL/es2MkY2PTea.oVL6KUJJIGa.oMOJ.Do2b5YE4hHLiJktqmRdxQdZChgRNfH4.EkOU64xLcWJmNZg52lpCwacQw!!/b&amp;bo=aAFoAWgBaAERCT4!&amp;rf=viewer_4" alt="katachi"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="katachi">
+            <img src="http://m.qpic.cn/psc?/V10OU2ui1HfXsL/es2MkY2PTea.oVL6KUJJIGa.oMOJ.Do2b5YE4hHLiJktqmRdxQdZChgRNfH4.EkOU64xLcWJmNZg52lpCwacQw!!/b&amp;bo=aAFoAWgBaAERCT4!&amp;rf=viewer_4" alt="katachi" alt="katachi">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>3</div>
+        <div><span>Tags</span>3</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:blog.yetfound404.fun" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Social</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/9014240" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/sawyouintheheaven" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Tag Cloud</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/bugFixed/" style="font-size: 10px;">bugFixed</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/sys/" style="font-size: 10px;">sys</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 katachi
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 6%;"> 
+          <img data-src="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507130959.png" data-sizes="auto" alt="vscode-mindmap-输出bug" class="lazyload">
+          <h1>vscode-mindmap-输出bug</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年05月07日</a>
+    <a><i class="nexmoefont icon-areachart"></i>270 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign">
+            <div class="nexmoe-toc">
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先说结论"><span class="toc-number">1.</span> <span class="toc-text">先说结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#detail"><span class="toc-number">3.</span> <span class="toc-text">detail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决bug可能不难，但是找到bug却没那么容易"><span class="toc-number">4.</span> <span class="toc-text">解决bug可能不难，但是找到bug却没那么容易</span></a></li></ol>
+            </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <article>
+    <ul>
+<li><h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2>  vscode 缩放导致插件的ui没显示出来，进而不能输出图片</li>
+<li><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2>  ctrl - 缩放，或者把左边EXPLORE隐藏即可</li>
+</ul>
+<hr>
+<ul>
+<li><h2 id="detail"><a href="#detail" class="headerlink" title="detail"></a>detail</h2><p>  接触vscode之后其他什么app都想使用插件，脑图也不例外，用的是vscode-mindmap。今天给导师演示脑图，末导师想让我输出图片给他,结果开始折腾。</p>
+<ul>
+<li><p>插件那里是这么说的<br><img data-sizes="auto" data-src="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507124132.png" alt="20200507124132" class="lazyload"></p>
+<p>可是我怎么找也找不到输出选项，默认的File和Edit应该是属于vscode的，插件应该不会进入这些选项卡。<br>国内搜索引擎试探一番，未果。尝试google，结果找到一个<a href="https://qiita.com/u-tanick/items/c178a759ab228eb1d64a" target="_blank" rel="noopener">日本小哥写的帖子</a><br>文末有一张图片我很在意：<img data-sizes="auto" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F267641%2F612ccc4e-b2e6-f71e-e0cb-53e21c55c0b6.png?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&s=4287b638f8e257fcce701af0b68318b5" alt="" class="lazyload"><br>为什么它的ui里有这个选项？然后我又去查了这个插件的历史版本，似乎也有。难道最新版给去掉了？不可能吧？<br>于是突然意识到是vscode没显示全的问题，缩放一下舒服了。<br><img data-sizes="auto" data-src="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507130959.png" alt="20200507130959" class="lazyload"></p>
+</li>
+</ul>
+</li>
+<li><h2 id="解决bug可能不难，但是找到bug却没那么容易"><a href="#解决bug可能不难，但是找到bug却没那么容易" class="headerlink" title="解决bug可能不难，但是找到bug却没那么容易"></a>解决bug可能不难，但是找到bug却没那么容易</h2><p>  <img data-sizes="auto" data-src="https://raw.githubusercontent.com/sawyouintheheaven/imageStorage/master/20200507123708.png" alt="20200507123708" class="lazyload"></p>
+</li>
+</ul>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/bugFixed/" rel="tag">bugFixed</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+
+    
+    <section class="nexmoe-comment">
+    <div id="gitment"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'sawyouintheheaven', // 你的 GitHub ID
+    repo: 'sawyouintheheaven.github.io', // 存储评论的 repo
+    oauth: {
+        client_id: '069e2c655bf38959ea9d', // 你的 client ID
+        client_secret: '17ca17053891483c773546564fc3647d6766842b' // 你的 client secret
+    },
+})
+gitment.render('gitment')
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="/js/app.js?v=1588829330067"></script>-->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+ 
+<script> 
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
